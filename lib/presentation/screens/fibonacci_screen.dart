@@ -45,7 +45,7 @@ class _FibonacciScreenState extends State<FibonacciScreen> {
       },
       child: CustomScrollView(
         slivers: [
-          SliverList(
+          MediaQuery.of(context).orientation == Orientation.portrait ? SliverList(
               delegate: SliverChildListDelegate([
                 FibonacciGrid(listFibonacci: fibonacciMatrix),
                 const Padding(padding: EdgeInsets.symmetric(vertical: 20), child: FibonacciSumList()),
@@ -60,6 +60,23 @@ class _FibonacciScreenState extends State<FibonacciScreen> {
                     )
                 )
               ])
+          ) : SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+            ),
+            delegate: SliverChildListDelegate([
+              FibonacciGrid(listFibonacci: fibonacciMatrix),
+              Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      InputsForGenerateFibonacci(startInputController: startInput, finishController: finishInput),
+                      ButtonsForFibonacci(
+                          formKey: _formKey, startInputController: startInput, finishController: finishInput)
+                    ],
+                  )
+              )
+            ]),
           )
         ],
       ),
@@ -86,6 +103,7 @@ class _FibonacciScreenState extends State<FibonacciScreen> {
       ),
       backgroundColor: Colors.redAccent,
     );
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

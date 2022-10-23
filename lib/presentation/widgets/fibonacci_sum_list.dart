@@ -22,6 +22,11 @@ class _FibonacciSumListState extends State<FibonacciSumList> {
               sum = value.sum;
             });
           },
+          initialState: (value) {
+            setState(() {
+              sum = 0;
+            });
+          },
         );
       },
       builder: (context, state) {

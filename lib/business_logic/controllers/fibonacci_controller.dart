@@ -32,7 +32,7 @@ class FibonacciController implements IFibonacciController {
     int rowCount = 0;
     for (var columnIndex = 0; columnIndex <= columns; columnIndex++) {
       for (var rowIndex = 0; rowIndex <= rows; rowIndex++) {
-        FibonacciInformation information = _getColumnFromFibonacciMatrix(
+        FibonacciInformation information = _getFibonacciCorrectPositionOfItemInOriginalMatrix(
             currentColumn: columnCount, currentRow: rowCount, side: side, lengthRow: rows, lengthColumn: columns);
         newMatrix[columnIndex][rowIndex] = matrix[information.columnIndex][information.rowIndex];
         rowCount += 1;
@@ -51,7 +51,7 @@ class FibonacciController implements IFibonacciController {
     return _getFibonacciNumber(numberToFibonacci - 1) + _getFibonacciNumber(numberToFibonacci - 2);
   }
 
-  FibonacciInformation _getColumnFromFibonacciMatrix(
+  FibonacciInformation _getFibonacciCorrectPositionOfItemInOriginalMatrix(
       {required int currentColumn,
       required int currentRow,
       required RotationOfTopSideOfMatrix side,

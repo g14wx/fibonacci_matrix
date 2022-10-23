@@ -10,11 +10,17 @@ class FibonacciMatrixPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Matriz de Fibonacci', style: TextStyle(color: Colors.black),),
+        title: const Text('Matriz de Fibonacci', style: TextStyle(color: Colors.black),),
+        centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: FibonacciScreen(),
+      body: MediaQuery.of(context).orientation == Orientation.portrait ? Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints.loose(const Size.fromWidth(600)),
+            child: FibonacciScreen()
+        ),
+      ) : FibonacciScreen(),
     );
   }
 }

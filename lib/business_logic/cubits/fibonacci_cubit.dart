@@ -33,7 +33,7 @@ class FibonacciCubit extends Cubit<FibonacciState> {
 
   generateFibonacci({required int start, required int finish}){
 
-    final numberOfItemsToShow = (finish - (start == 1 ? 0 : start));
+    final numberOfItemsToShow = (finish - (start - 1));
     if ( numberOfItemsToShow.isNegative || !(numberOfItemsToShow == 9) ) {
       _updateAlert = !_updateAlert;
       emit(FibonacciState.error(message: "La cantidad de números a mostrar debe de ser una cuadrícula de 3x3 (9 elementos)", update: _updateAlert));

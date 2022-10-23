@@ -1,4 +1,5 @@
 import 'package:fibonacci_matrix/business_logic/cubits/fibonacci_cubit.dart';
+import 'package:fibonacci_matrix/presentation/widgets/button_fibonacci.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -43,31 +44,36 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          TextButton(
-              onPressed: () {
-                if (widget._formKey.currentState != null && widget._formKey.currentState!.validate()) {
-                  final start = int.parse(widget._startInput.value.text);
-                  final finish = int.parse(widget._finishInput.value.text);
-                  context.read<FibonacciCubit>().generateFibonacci(start: start, finish: finish);
-                } else {
-                  _showErrorSnackBar(context);
-                }
-              },
-              child: Text('Generar matriz')),
-          TextButton(
-              onPressed: _disableButtons
+          const SizedBox(
+            height: 50,
+          ),
+          ButtonFibonacci(
+            onTap: () {
+              if (widget._formKey.currentState != null && widget._formKey.currentState!.validate()) {
+                final start = int.parse(widget._startInput.value.text);
+                final finish = int.parse(widget._finishInput.value.text);
+                context.read<FibonacciCubit>().generateFibonacci(start: start, finish: finish);
+              } else {
+                _showErrorSnackBar(context);
+              }
+            },
+            child: Text('Generar matriz'),
+          ),
+          _getDividerBetweenButtons,
+          ButtonFibonacci(
+              onTap: _disableButtons
                   ? null
                   : () {
                       context.read<FibonacciCubit>().rotateFibonacci();
                     },
               child: Text('Rotar a la derecha')),
-
-          TextButton(
-              onPressed: _disableButtons
+          _getDividerBetweenButtons,
+          ButtonFibonacci(
+              onTap: _disableButtons
                   ? null
                   : () {
-                context.read<FibonacciCubit>().resetFibonacci();
-              },
+                      context.read<FibonacciCubit>().resetFibonacci();
+                    },
               child: Text('Limpiar matriz'))
         ],
       ),
@@ -76,6 +82,7 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
 
   _showErrorSnackBar(BuildContext context) {
     final snackBar = SnackBar(
+
       content: Row(
         children: const [
           Icon(
@@ -92,6 +99,9 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
       ),
       backgroundColor: Colors.redAccent,
     );
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
+
+  Widget get _getDividerBetweenButtons => SizedBox(height: 10,);
 }
