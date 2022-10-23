@@ -30,9 +30,10 @@ dev_dependencies:
   freezed: ^2.2.0
   build_runner: ^2.3.2
   flutter_launcher_icons_maker: ^0.10.2
+  injectable_generator: ^1.5.4
 
 flutter:
-  generate: true
+  #generate: true
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
