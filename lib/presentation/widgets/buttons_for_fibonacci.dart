@@ -1,4 +1,5 @@
 import 'package:fibonacci_matrix/business_logic/cubits/fibonacci_cubit.dart';
+import 'package:fibonacci_matrix/constants/id_keys_for_elements.dart';
 import 'package:fibonacci_matrix/presentation/widgets/button_fibonacci.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,6 +49,7 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
             height: 50,
           ),
           ButtonFibonacci(
+            keyId: Key(IdKeysForElements.buttonToGenerateGrid.literal),
             onTap: () {
               if (widget._formKey.currentState != null && widget._formKey.currentState!.validate()) {
                 final start = int.parse(widget._startInput.value.text);

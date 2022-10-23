@@ -41,23 +41,23 @@ mixin _$FibonacciState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initialState,
-    required TResult Function(_GenerateFibonacci value) generateFibonacci,
-    required TResult Function(_Error value) error,
+    required TResult Function(InitialState value) initialState,
+    required TResult Function(GenerateFibonacci value) generateFibonacci,
+    required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initialState,
-    TResult? Function(_GenerateFibonacci value)? generateFibonacci,
-    TResult? Function(_Error value)? error,
+    TResult? Function(InitialState value)? initialState,
+    TResult? Function(GenerateFibonacci value)? generateFibonacci,
+    TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initialState,
-    TResult Function(_GenerateFibonacci value)? generateFibonacci,
-    TResult Function(_Error value)? error,
+    TResult Function(InitialState value)? initialState,
+    TResult Function(GenerateFibonacci value)? generateFibonacci,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -82,25 +82,25 @@ class _$FibonacciStateCopyWithImpl<$Res, $Val extends FibonacciState>
 }
 
 /// @nodoc
-abstract class _$$_InitialStateCopyWith<$Res> {
-  factory _$$_InitialStateCopyWith(
-          _$_InitialState value, $Res Function(_$_InitialState) then) =
-      __$$_InitialStateCopyWithImpl<$Res>;
+abstract class _$$InitialStateCopyWith<$Res> {
+  factory _$$InitialStateCopyWith(
+          _$InitialState value, $Res Function(_$InitialState) then) =
+      __$$InitialStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialStateCopyWithImpl<$Res>
-    extends _$FibonacciStateCopyWithImpl<$Res, _$_InitialState>
-    implements _$$_InitialStateCopyWith<$Res> {
-  __$$_InitialStateCopyWithImpl(
-      _$_InitialState _value, $Res Function(_$_InitialState) _then)
+class __$$InitialStateCopyWithImpl<$Res>
+    extends _$FibonacciStateCopyWithImpl<$Res, _$InitialState>
+    implements _$$InitialStateCopyWith<$Res> {
+  __$$InitialStateCopyWithImpl(
+      _$InitialState _value, $Res Function(_$InitialState) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_InitialState implements _InitialState {
-  const _$_InitialState();
+class _$InitialState implements InitialState {
+  const _$InitialState();
 
   @override
   String toString() {
@@ -110,7 +110,7 @@ class _$_InitialState implements _InitialState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_InitialState);
+        (other.runtimeType == runtimeType && other is _$InitialState);
   }
 
   @override
@@ -154,9 +154,9 @@ class _$_InitialState implements _InitialState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initialState,
-    required TResult Function(_GenerateFibonacci value) generateFibonacci,
-    required TResult Function(_Error value) error,
+    required TResult Function(InitialState value) initialState,
+    required TResult Function(GenerateFibonacci value) generateFibonacci,
+    required TResult Function(Error value) error,
   }) {
     return initialState(this);
   }
@@ -164,9 +164,9 @@ class _$_InitialState implements _InitialState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initialState,
-    TResult? Function(_GenerateFibonacci value)? generateFibonacci,
-    TResult? Function(_Error value)? error,
+    TResult? Function(InitialState value)? initialState,
+    TResult? Function(GenerateFibonacci value)? generateFibonacci,
+    TResult? Function(Error value)? error,
   }) {
     return initialState?.call(this);
   }
@@ -174,9 +174,9 @@ class _$_InitialState implements _InitialState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initialState,
-    TResult Function(_GenerateFibonacci value)? generateFibonacci,
-    TResult Function(_Error value)? error,
+    TResult Function(InitialState value)? initialState,
+    TResult Function(GenerateFibonacci value)? generateFibonacci,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (initialState != null) {
@@ -186,25 +186,25 @@ class _$_InitialState implements _InitialState {
   }
 }
 
-abstract class _InitialState implements FibonacciState {
-  const factory _InitialState() = _$_InitialState;
+abstract class InitialState implements FibonacciState {
+  const factory InitialState() = _$InitialState;
 }
 
 /// @nodoc
-abstract class _$$_GenerateFibonacciCopyWith<$Res> {
-  factory _$$_GenerateFibonacciCopyWith(_$_GenerateFibonacci value,
-          $Res Function(_$_GenerateFibonacci) then) =
-      __$$_GenerateFibonacciCopyWithImpl<$Res>;
+abstract class _$$GenerateFibonacciCopyWith<$Res> {
+  factory _$$GenerateFibonacciCopyWith(
+          _$GenerateFibonacci value, $Res Function(_$GenerateFibonacci) then) =
+      __$$GenerateFibonacciCopyWithImpl<$Res>;
   @useResult
   $Res call({List<List<int>> fibonacci, int sum});
 }
 
 /// @nodoc
-class __$$_GenerateFibonacciCopyWithImpl<$Res>
-    extends _$FibonacciStateCopyWithImpl<$Res, _$_GenerateFibonacci>
-    implements _$$_GenerateFibonacciCopyWith<$Res> {
-  __$$_GenerateFibonacciCopyWithImpl(
-      _$_GenerateFibonacci _value, $Res Function(_$_GenerateFibonacci) _then)
+class __$$GenerateFibonacciCopyWithImpl<$Res>
+    extends _$FibonacciStateCopyWithImpl<$Res, _$GenerateFibonacci>
+    implements _$$GenerateFibonacciCopyWith<$Res> {
+  __$$GenerateFibonacciCopyWithImpl(
+      _$GenerateFibonacci _value, $Res Function(_$GenerateFibonacci) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -213,7 +213,7 @@ class __$$_GenerateFibonacciCopyWithImpl<$Res>
     Object? fibonacci = null,
     Object? sum = null,
   }) {
-    return _then(_$_GenerateFibonacci(
+    return _then(_$GenerateFibonacci(
       fibonacci: null == fibonacci
           ? _value._fibonacci
           : fibonacci // ignore: cast_nullable_to_non_nullable
@@ -228,8 +228,8 @@ class __$$_GenerateFibonacciCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GenerateFibonacci implements _GenerateFibonacci {
-  const _$_GenerateFibonacci(
+class _$GenerateFibonacci implements GenerateFibonacci {
+  const _$GenerateFibonacci(
       {required final List<List<int>> fibonacci, required this.sum})
       : _fibonacci = fibonacci;
 
@@ -252,7 +252,7 @@ class _$_GenerateFibonacci implements _GenerateFibonacci {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GenerateFibonacci &&
+            other is _$GenerateFibonacci &&
             const DeepCollectionEquality()
                 .equals(other._fibonacci, _fibonacci) &&
             (identical(other.sum, sum) || other.sum == sum));
@@ -265,9 +265,8 @@ class _$_GenerateFibonacci implements _GenerateFibonacci {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GenerateFibonacciCopyWith<_$_GenerateFibonacci> get copyWith =>
-      __$$_GenerateFibonacciCopyWithImpl<_$_GenerateFibonacci>(
-          this, _$identity);
+  _$$GenerateFibonacciCopyWith<_$GenerateFibonacci> get copyWith =>
+      __$$GenerateFibonacciCopyWithImpl<_$GenerateFibonacci>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -307,9 +306,9 @@ class _$_GenerateFibonacci implements _GenerateFibonacci {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initialState,
-    required TResult Function(_GenerateFibonacci value) generateFibonacci,
-    required TResult Function(_Error value) error,
+    required TResult Function(InitialState value) initialState,
+    required TResult Function(GenerateFibonacci value) generateFibonacci,
+    required TResult Function(Error value) error,
   }) {
     return generateFibonacci(this);
   }
@@ -317,9 +316,9 @@ class _$_GenerateFibonacci implements _GenerateFibonacci {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initialState,
-    TResult? Function(_GenerateFibonacci value)? generateFibonacci,
-    TResult? Function(_Error value)? error,
+    TResult? Function(InitialState value)? initialState,
+    TResult? Function(GenerateFibonacci value)? generateFibonacci,
+    TResult? Function(Error value)? error,
   }) {
     return generateFibonacci?.call(this);
   }
@@ -327,9 +326,9 @@ class _$_GenerateFibonacci implements _GenerateFibonacci {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initialState,
-    TResult Function(_GenerateFibonacci value)? generateFibonacci,
-    TResult Function(_Error value)? error,
+    TResult Function(InitialState value)? initialState,
+    TResult Function(GenerateFibonacci value)? generateFibonacci,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (generateFibonacci != null) {
@@ -339,31 +338,31 @@ class _$_GenerateFibonacci implements _GenerateFibonacci {
   }
 }
 
-abstract class _GenerateFibonacci implements FibonacciState {
-  const factory _GenerateFibonacci(
+abstract class GenerateFibonacci implements FibonacciState {
+  const factory GenerateFibonacci(
       {required final List<List<int>> fibonacci,
-      required final int sum}) = _$_GenerateFibonacci;
+      required final int sum}) = _$GenerateFibonacci;
 
   List<List<int>> get fibonacci;
   int get sum;
   @JsonKey(ignore: true)
-  _$$_GenerateFibonacciCopyWith<_$_GenerateFibonacci> get copyWith =>
+  _$$GenerateFibonacciCopyWith<_$GenerateFibonacci> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ErrorCopyWith<$Res> {
-  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
-      __$$_ErrorCopyWithImpl<$Res>;
+abstract class _$$ErrorCopyWith<$Res> {
+  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
+      __$$ErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({String message, bool update});
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res>
-    extends _$FibonacciStateCopyWithImpl<$Res, _$_Error>
-    implements _$$_ErrorCopyWith<$Res> {
-  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+class __$$ErrorCopyWithImpl<$Res>
+    extends _$FibonacciStateCopyWithImpl<$Res, _$Error>
+    implements _$$ErrorCopyWith<$Res> {
+  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -372,7 +371,7 @@ class __$$_ErrorCopyWithImpl<$Res>
     Object? message = null,
     Object? update = null,
   }) {
-    return _then(_$_Error(
+    return _then(_$Error(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -387,8 +386,8 @@ class __$$_ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Error implements _Error {
-  const _$_Error({required this.message, required this.update});
+class _$Error implements Error {
+  const _$Error({required this.message, required this.update});
 
   @override
   final String message;
@@ -404,7 +403,7 @@ class _$_Error implements _Error {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Error &&
+            other is _$Error &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.update, update) || other.update == update));
   }
@@ -415,8 +414,8 @@ class _$_Error implements _Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
-      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
+  _$$ErrorCopyWith<_$Error> get copyWith =>
+      __$$ErrorCopyWithImpl<_$Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -456,9 +455,9 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_InitialState value) initialState,
-    required TResult Function(_GenerateFibonacci value) generateFibonacci,
-    required TResult Function(_Error value) error,
+    required TResult Function(InitialState value) initialState,
+    required TResult Function(GenerateFibonacci value) generateFibonacci,
+    required TResult Function(Error value) error,
   }) {
     return error(this);
   }
@@ -466,9 +465,9 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InitialState value)? initialState,
-    TResult? Function(_GenerateFibonacci value)? generateFibonacci,
-    TResult? Function(_Error value)? error,
+    TResult? Function(InitialState value)? initialState,
+    TResult? Function(GenerateFibonacci value)? generateFibonacci,
+    TResult? Function(Error value)? error,
   }) {
     return error?.call(this);
   }
@@ -476,9 +475,9 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitialState value)? initialState,
-    TResult Function(_GenerateFibonacci value)? generateFibonacci,
-    TResult Function(_Error value)? error,
+    TResult Function(InitialState value)? initialState,
+    TResult Function(GenerateFibonacci value)? generateFibonacci,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -488,13 +487,12 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements FibonacciState {
-  const factory _Error(
-      {required final String message, required final bool update}) = _$_Error;
+abstract class Error implements FibonacciState {
+  const factory Error(
+      {required final String message, required final bool update}) = _$Error;
 
   String get message;
   bool get update;
   @JsonKey(ignore: true)
-  _$$_ErrorCopyWith<_$_Error> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ErrorCopyWith<_$Error> get copyWith => throw _privateConstructorUsedError;
 }

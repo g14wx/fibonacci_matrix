@@ -1,3 +1,4 @@
+import 'package:fibonacci_matrix/constants/id_keys_for_elements.dart';
 import 'package:flutter/material.dart';
 
 class InputsForGenerateFibonacci extends StatelessWidget {
@@ -25,6 +26,7 @@ class InputsForGenerateFibonacci extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   TextFormField(
+                      key: Key(IdKeysForElements.startIndexFibonacci.literal),
                       autovalidateMode: AutovalidateMode.always,
                       controller: _startInput,
                       keyboardType: TextInputType.number,
@@ -48,6 +50,7 @@ class InputsForGenerateFibonacci extends StatelessWidget {
                 children: [
                   const Text("Elemento final:", textAlign: TextAlign.center),
                   TextFormField(
+                      key: Key(IdKeysForElements.finishIndexFibonacci.literal),
                       autovalidateMode: AutovalidateMode.always,
                       controller: _finishInput,
                       keyboardType: TextInputType.number,
