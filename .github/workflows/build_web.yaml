@@ -13,7 +13,7 @@ jobs:
       - run: flutter test
   build:
     name: 🚀 Build Web on main
-      needs: [test]
+    needs: [test]
     env:
       my_secret: ${{secrets.PAT}}
     runs-on: ubuntu-latest
