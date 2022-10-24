@@ -70,6 +70,7 @@ class _FibonacciScreenState extends State<FibonacciScreen> {
                   key: _formKey,
                   child: Column(
                     children: [
+                      const Padding(padding: EdgeInsets.symmetric(vertical: 20), child: FibonacciSumList()),
                       InputsForGenerateFibonacci(startInputController: startInput, finishController: finishInput),
                       ButtonsForFibonacci(
                           formKey: _formKey, startInputController: startInput, finishController: finishInput)
