@@ -10,6 +10,7 @@ on:
 name: "🚀 📱 Build App mobile for android"
 jobs:
   test:
+    name: running tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
