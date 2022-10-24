@@ -31,7 +31,7 @@ jobs:
           git config --global user.email carlos.hernandez3@catolica.edu.sv
           git config --global user.name g14wx
           git status
-          git remote add origin https://${{env.my_secret}}@github.com/fibonacci_matrix.git
+          git remote add origin https://${{env.my_secret}}@github.com/g14wx/fibonacci_matrix.git
           git checkout -b gh-pages
           git add --all
           git commit -m "update web"
