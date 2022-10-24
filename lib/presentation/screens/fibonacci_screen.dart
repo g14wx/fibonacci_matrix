@@ -1,6 +1,7 @@
 import 'package:fibonacci_matrix/business_logic/cubits/fibonacci_cubit.dart';
 import 'package:fibonacci_matrix/business_logic/cubits/fibonacci_cubit.dart';
 import 'package:fibonacci_matrix/presentation/widgets/buttons_for_fibonacci.dart';
+import 'package:fibonacci_matrix/presentation/widgets/fibonacci_information_label.dart';
 import 'package:flutter/material.dart';
 
 /// Widgets
@@ -55,13 +56,14 @@ class _FibonacciScreenState extends State<FibonacciScreen> {
                       children: [
                         InputsForGenerateFibonacci(startInputController: startInput, finishController: finishInput),
                         ButtonsForFibonacci(
-                            formKey: _formKey, startInputController: startInput, finishController: finishInput)
+                            formKey: _formKey, startInputController: startInput, finishController: finishInput),
+                        const FibonacciInformationLabel()
                       ],
                     )
                 )
               ])
           ) : SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
             delegate: SliverChildListDelegate([
@@ -73,7 +75,7 @@ class _FibonacciScreenState extends State<FibonacciScreen> {
                       const Padding(padding: EdgeInsets.symmetric(vertical: 20), child: FibonacciSumList()),
                       InputsForGenerateFibonacci(startInputController: startInput, finishController: finishInput),
                       ButtonsForFibonacci(
-                          formKey: _formKey, startInputController: startInput, finishController: finishInput)
+                          formKey: _formKey, startInputController: startInput, finishController: finishInput),
                     ],
                   )
               )

@@ -45,10 +45,20 @@ class FibonacciController implements IFibonacciController {
   }
 
   int _getFibonacciNumber(int numberToFibonacci) {
-    if (numberToFibonacci <= 1) {
-      return numberToFibonacci;
+    if (numberToFibonacci == 0) return 0;
+    if (numberToFibonacci == 1) return 1;
+
+    int prevPrevious = 0;
+    int prev = 1;
+    int result = 0;
+
+    for (int i = 2; i <= numberToFibonacci; i++)
+    {
+      result = prev + prevPrevious;
+      prevPrevious = prev;
+      prev = result;
     }
-    return _getFibonacciNumber(numberToFibonacci - 1) + _getFibonacciNumber(numberToFibonacci - 2);
+    return result;
   }
 
   FibonacciInformation _getFibonacciCorrectPositionOfItemInOriginalMatrix(

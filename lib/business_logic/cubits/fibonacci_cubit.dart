@@ -33,14 +33,14 @@ class FibonacciCubit extends Cubit<FibonacciState> {
 
   generateFibonacci({required int start, required int finish}){
 
-    final numberOfItemsToShow = (finish - (start - 1));
+    final numberOfItemsToShow = (finish - start);
     if ( numberOfItemsToShow.isNegative || !(numberOfItemsToShow == 9) ) {
       _updateAlert = !_updateAlert;
       emit(FibonacciState.error(message: "La cantidad de números a mostrar debe de ser una cuadrícula de 3x3 (9 elementos)", update: _updateAlert));
       return;
     }
 
-    final fibonacciList = controller.getFibonacciSequence(start - 1, finish);
+    final fibonacciList = controller.getFibonacciSequence(start , finish);
     final matrix = controller.getFibonacciMatrixSequence( fibonacciList, 3, 3, RotationOfTopSideOfMatrix.top);
     final sum = matrix.fold(0, (previousValue, element){
       final sumRow = element.fold(0, (previousValue, element) => previousValue + element);

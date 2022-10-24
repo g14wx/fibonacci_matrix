@@ -14,7 +14,7 @@ void main() {
     'Generate a fibonacci Matrix',
     build: () => getIt<FibonacciCubit>(),
     act: (bloc) {
-      bloc.generateFibonacci(start: 1, finish: 9);
+      bloc.generateFibonacci(start: 0, finish: 9);
     },
     expect: () => [
       isA<GenerateFibonacci>()
