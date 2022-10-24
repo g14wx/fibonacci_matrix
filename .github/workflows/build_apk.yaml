@@ -7,11 +7,18 @@ on:
   push:
     branches:
       - main
-      - develop
 name: "🚀 📱 Build App mobile for android"
 jobs:
+  test:
+    name: running tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
+      - run: flutter test
   build:
     name: Build & Release
+    needs: [test]
     runs-on: ubuntu-latest #macos-latest
     steps:
       - uses: actions/checkout@v1
