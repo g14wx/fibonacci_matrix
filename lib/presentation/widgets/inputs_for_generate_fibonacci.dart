@@ -32,8 +32,11 @@ class InputsForGenerateFibonacci extends StatelessWidget {
                       keyboardType: TextInputType.number,
                       validator: (value) {
                         final isNumber = int.tryParse(value ?? "") != null;
-                        if (value == null || !isNumber || int.parse(value) < 1) {
+                        if (value == null || !isNumber) {
                           return "Ingrese un numero entero";
+                        }
+                        if (int.parse(value) < 0) {
+                          return "Ingrese numeros positivos";
                         }
                       })
                 ],
@@ -58,6 +61,12 @@ class InputsForGenerateFibonacci extends StatelessWidget {
                         final isNumber = int.tryParse(value ?? "") != null;
                         if (value == null || !isNumber) {
                           return "Ingrese un numero entero";
+                        }
+                        if (int.parse(value) < 0) {
+                          return "Ingrese numeros positivos";
+                        }
+                        if (int.parse(value) == 0) {
+                          return "Ingrese numero mayor a 0";
                         }
                       })
                 ],
