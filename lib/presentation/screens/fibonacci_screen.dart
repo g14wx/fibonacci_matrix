@@ -61,7 +61,7 @@ class _FibonacciScreenState extends State<FibonacciScreen> {
                 )
               ])
           ) : SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
             delegate: SliverChildListDelegate([
