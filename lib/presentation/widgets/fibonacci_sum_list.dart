@@ -15,20 +15,7 @@ class _FibonacciSumListState extends State<FibonacciSumList> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<FibonacciCubit, FibonacciState>(
-      listener: (context, state) {
-        state.mapOrNull(
-          generateFibonacci: (value) {
-            setState(() {
-              sum = value.sum;
-            });
-          },
-          initialState: (value) {
-            setState(() {
-              sum = 0;
-            });
-          },
-        );
-      },
+      listener: (context, state) => _listenOnFibonacciCubitForSumList(state),
       builder: (context, state) {
         return Center(child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
@@ -37,4 +24,18 @@ class _FibonacciSumListState extends State<FibonacciSumList> {
       },
     );
   }
+
+  /// Functions
+  _listenOnFibonacciCubitForSumList(FibonacciState state) => state.mapOrNull(
+      generateFibonacci: (value) {
+        setState(() {
+          sum = value.sum;
+        });
+      },
+      initialState: (value) {
+        setState(() {
+          sum = 0;
+        });
+      },
+    );
 }
