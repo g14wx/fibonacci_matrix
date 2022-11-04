@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
+// widgets
 import 'fibonacci_screen.dart';
 
-class FibonacciMatrixMainScreen extends StatelessWidget {
-  const FibonacciMatrixMainScreen({Key? key}) : super(key: key);
+/// Conditional widget
+///
+/// This component is only to watch if the orientation is portrait, this will only add a Constrained box to limit
+/// the max width that can reach the viewport
+class FibonacciMatrixConditionalScreen extends StatelessWidget {
+  const FibonacciMatrixConditionalScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

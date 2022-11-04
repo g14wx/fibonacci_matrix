@@ -1,8 +1,5 @@
-import 'package:fibonacci_matrix/presentation/screens/fibonacci_matrix_main_screen.dart';
+import 'package:fibonacci_matrix/presentation/screens/fibonacci_matrix_conditional_screen.dart';
 import 'package:flutter/material.dart';
-
-/// widgets
-import 'package:fibonacci_matrix/presentation/screens/fibonacci_screen.dart';
 
 class FibonacciMatrixPage extends StatelessWidget {
   const FibonacciMatrixPage({Key? key}) : super(key: key);
@@ -16,7 +13,7 @@ class FibonacciMatrixPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: const FibonacciMatrixMainScreen()
+      body: const FibonacciMatrixConditionalScreen()
     );
   }
 }
