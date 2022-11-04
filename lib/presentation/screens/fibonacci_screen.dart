@@ -19,7 +19,9 @@ class FibonacciScreen extends StatefulWidget {
 class _FibonacciScreenState extends State<FibonacciScreen> {
   final startInput = TextEditingController();
   final finishInput = TextEditingController();
-  List<List<int>> fibonacciMatrix = List.generate(3, (index) => List.generate(3, (index) => 0,)).toList();
+  List<List<int>> fibonacciMatrix = List.generate(
+      3,
+      (index) => List.generate(3, (index) => 0)).toList();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -38,54 +40,58 @@ class _FibonacciScreenState extends State<FibonacciScreen> {
           },
           initialState: (value) {
             setState(() {
-              fibonacciMatrix = List.generate(3, (index) => List.generate(3, (index) => 0,)).toList();
+              fibonacciMatrix = List.generate(
+                  3,
+                  (index) => List.generate(
+                        3,
+                        (index) => 0,
+                      )).toList();
             });
           },
         );
       },
       child: CustomScrollView(
         slivers: [
-          MediaQuery.of(context).orientation == Orientation.portrait ? SliverList(
-              delegate: SliverChildListDelegate([
-                FibonacciGrid(listFibonacci: fibonacciMatrix),
-                const Padding(padding: EdgeInsets.symmetric(vertical: 20), child: FibonacciSumList()),
-                Form(
-                    key: _formKey,
-                    child: Column(
-                      children: [
-                        InputsForGenerateFibonacci(startInputController: startInput, finishController: finishInput),
-                        ButtonsForFibonacci(
-                            formKey: _formKey, startInputController: startInput, finishController: finishInput),
-                        const FibonacciInformationLabel()
-                      ],
-                    )
+          MediaQuery.of(context).orientation == Orientation.portrait
+              ? SliverList(
+                  delegate: SliverChildListDelegate([
+                  FibonacciGrid(listFibonacci: fibonacciMatrix),
+                  const Padding(padding: EdgeInsets.symmetric(vertical: 20), child: FibonacciSumList()),
+                  Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          InputsForGenerateFibonacci(startInputController: startInput, finishController: finishInput),
+                          ButtonsForFibonacci(
+                              formKey: _formKey, startInputController: startInput, finishController: finishInput),
+                          const FibonacciInformationLabel()
+                        ],
+                      ))
+                ]))
+              : SliverGrid(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                  ),
+                  delegate: SliverChildListDelegate([
+                    FibonacciGrid(listFibonacci: fibonacciMatrix),
+                    Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            const Padding(padding: EdgeInsets.symmetric(vertical: 20), child: FibonacciSumList()),
+                            InputsForGenerateFibonacci(startInputController: startInput, finishController: finishInput),
+                            ButtonsForFibonacci(
+                                formKey: _formKey, startInputController: startInput, finishController: finishInput),
+                          ],
+                        ))
+                  ]),
                 )
-              ])
-          ) : SliverGrid(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-            ),
-            delegate: SliverChildListDelegate([
-              FibonacciGrid(listFibonacci: fibonacciMatrix),
-              Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      const Padding(padding: EdgeInsets.symmetric(vertical: 20), child: FibonacciSumList()),
-                      InputsForGenerateFibonacci(startInputController: startInput, finishController: finishInput),
-                      ButtonsForFibonacci(
-                          formKey: _formKey, startInputController: startInput, finishController: finishInput),
-                    ],
-                  )
-              )
-            ]),
-          )
         ],
       ),
     );
   }
 
-  _showErrorSnackBar(BuildContext context, String message){
+  _showErrorSnackBar(BuildContext context, String message) {
     final snackBar = SnackBar(
       content: Row(
         children: [
@@ -97,9 +103,7 @@ class _FibonacciScreenState extends State<FibonacciScreen> {
             width: 10,
           ),
           Flexible(
-            child: Text(
-              message
-            ),
+            child: Text(message),
           )
         ],
       ),

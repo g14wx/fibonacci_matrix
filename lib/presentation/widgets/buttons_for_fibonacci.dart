@@ -28,20 +28,7 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<FibonacciCubit, FibonacciState>(
-      listener: (context, state) {
-        state.mapOrNull(
-          generateFibonacci: (value) {
-            setState(() {
-              _disableButtons = false;
-            });
-          },
-          initialState: (value) {
-            setState(() {
-              _disableButtons = true;
-            });
-          },
-        );
-      },
+      listener: (context, state) => _processListenerOnFibonacciCubit(state),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -50,33 +37,13 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
           ),
           ButtonFibonacci(
             keyId: Key(IdKeysForElements.buttonToGenerateGrid.literal),
-            onTap: () {
-              if (widget._formKey.currentState != null && widget._formKey.currentState!.validate()) {
-                final start = int.parse(widget._startInput.value.text);
-                final finish = int.parse(widget._finishInput.value.text);
-                context.read<FibonacciCubit>().generateFibonacci(start: start, finish: finish);
-              } else {
-                _showErrorSnackBar(context);
-              }
-            },
+            onTap: () => _generateMatrix(),
             child: const Text('Generar matriz'),
           ),
           _getDividerBetweenButtons,
-          ButtonFibonacci(
-              onTap: _disableButtons
-                  ? null
-                  : () {
-                      context.read<FibonacciCubit>().rotateFibonacci();
-                    },
-              child: const Text('Rotar a la derecha')),
+          ButtonFibonacci(onTap: _canTapRotateToRight, child: const Text('Rotar a la derecha')),
           _getDividerBetweenButtons,
-          ButtonFibonacci(
-              onTap: _disableButtons
-                  ? null
-                  : () {
-                      context.read<FibonacciCubit>().resetFibonacci();
-                    },
-              child: const Text('Limpiar matriz'))
+          ButtonFibonacci(onTap: _canTapCleanMatrix, child: const Text('Limpiar matriz'))
         ],
       ),
     );
@@ -84,7 +51,6 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
 
   _showErrorSnackBar(BuildContext context) {
     final snackBar = SnackBar(
-
       content: Row(
         children: const [
           Icon(
@@ -105,5 +71,37 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  Widget get _getDividerBetweenButtons => const SizedBox(height: 10,);
+  /// functions
+  _generateMatrix() {
+    if (widget._formKey.currentState != null && widget._formKey.currentState!.validate()) {
+      final start = int.parse(widget._startInput.value.text);
+      final finish = int.parse(widget._finishInput.value.text);
+      context.read<FibonacciCubit>().generateFibonacci(start: start, finish: finish);
+    } else {
+      _showErrorSnackBar(context);
+    }
+  }
+
+  _processListenerOnFibonacciCubit(FibonacciState state) => state.mapOrNull(
+        generateFibonacci: (value) {
+          setState(() {
+            _disableButtons = false;
+          });
+        },
+        initialState: (value) {
+          setState(() {
+            _disableButtons = true;
+          });
+        },
+      );
+
+  /// getters
+
+  Function? get _canTapRotateToRight => _disableButtons ? null : () => context.read<FibonacciCubit>().rotateFibonacci();
+
+  Function? get _canTapCleanMatrix => _disableButtons ? null : () => context.read<FibonacciCubit>().resetFibonacci();
+
+  Widget get _getDividerBetweenButtons => const SizedBox(
+        height: 10,
+      );
 }
