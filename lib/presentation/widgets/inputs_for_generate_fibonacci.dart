@@ -1,4 +1,5 @@
 import 'package:fibonacci_matrix/constants/id_keys_for_elements.dart';
+import 'package:fibonacci_matrix/presentation/widgets/text_input_fibonacci.dart';
 import 'package:flutter/material.dart';
 
 class InputsForGenerateFibonacci extends StatelessWidget {
@@ -16,65 +17,46 @@ class InputsForGenerateFibonacci extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: [
-          Flexible(
-            flex: 6,
-            child: Center(
-              child: Column(
-                children: [
-                  const Text(
-                    "Elemento inicial:",
-                    textAlign: TextAlign.center,
-                  ),
-                  TextFormField(
-                      key: Key(IdKeysForElements.startIndexFibonacci.literal),
-                      autovalidateMode: AutovalidateMode.always,
-                      controller: _startInput,
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        final isNumber = int.tryParse(value ?? "") != null;
-                        if (value == null || !isNumber) {
-                          return "Ingrese un numero entero";
-                        } else if (int.parse(value) < 0) {
-                          return "Ingrese numeros positivos";
-                        }
-                        return null;
-                      })
-                ],
-              ),
-            ),
+          TextInputFibonacci(
+            title: "Elemento inicial:",
+            inputKey: Key(IdKeysForElements.startIndexFibonacci.literal),
+            inputTextEditingController: _startInput,
+            validator: _validatorForFirstElementInput,
           ),
           const Spacer(
             flex: 1,
           ),
-          Flexible(
-            flex: 6,
-            child: Center(
-              child: Column(
-                children: [
-                  const Text("Elemento final:", textAlign: TextAlign.center),
-                  TextFormField(
-                      key: Key(IdKeysForElements.finishIndexFibonacci.literal),
-                      autovalidateMode: AutovalidateMode.always,
-                      controller: _finishInput,
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        final isNumber = int.tryParse(value ?? "") != null;
-                        if (value == null || !isNumber) {
-                          return "Ingrese un numero entero";
-                        }
-                        if (int.parse(value) < 0) {
-                          return "Ingrese numeros positivos";
-                        } else if (int.parse(value) == 0) {
-                          return "Ingrese numero mayor a 0";
-                        }
-                        return null;
-                      })
-                ],
-              ),
-            ),
-          )
+          TextInputFibonacci(
+            title: "Elemento final:",
+            inputKey: Key(IdKeysForElements.finishIndexFibonacci.literal),
+            inputTextEditingController: _finishInput,
+            validator: _validatorForSecondElementInput,
+          ),
         ],
       ),
     );
+  }
+
+  String? _validatorForFirstElementInput(String? value) {
+    final isNumber = int.tryParse(value ?? "") != null;
+    if (value == null || !isNumber) {
+      return "Ingrese un numero entero";
+    } else if (int.parse(value) < 0) {
+      return "Ingrese numeros positivos";
+    }
+    return null;
+  }
+
+  String? _validatorForSecondElementInput(String? value) {
+    final isNumber = int.tryParse(value ?? "") != null;
+    if (value == null || !isNumber) {
+      return "Ingrese un numero entero";
+    }
+    if (int.parse(value) < 0) {
+      return "Ingrese numeros positivos";
+    } else if (int.parse(value) == 0) {
+      return "Ingrese numero mayor a 0";
+    }
+    return null;
   }
 }
