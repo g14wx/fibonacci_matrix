@@ -9,7 +9,7 @@ class ButtonsForFibonacci extends StatefulWidget {
   final TextEditingController _finishInput;
   final GlobalKey<FormState> _formKey;
 
-  ButtonsForFibonacci(
+  const ButtonsForFibonacci(
       {Key? key,
       required GlobalKey<FormState> formKey,
       required TextEditingController startInputController,
@@ -59,7 +59,7 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
                 _showErrorSnackBar(context);
               }
             },
-            child: Text('Generar matriz'),
+            child: const Text('Generar matriz'),
           ),
           _getDividerBetweenButtons,
           ButtonFibonacci(
@@ -68,7 +68,7 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
                   : () {
                       context.read<FibonacciCubit>().rotateFibonacci();
                     },
-              child: Text('Rotar a la derecha')),
+              child: const Text('Rotar a la derecha')),
           _getDividerBetweenButtons,
           ButtonFibonacci(
               onTap: _disableButtons
@@ -76,7 +76,7 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
                   : () {
                       context.read<FibonacciCubit>().resetFibonacci();
                     },
-              child: Text('Limpiar matriz'))
+              child: const Text('Limpiar matriz'))
         ],
       ),
     );
@@ -105,5 +105,5 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  Widget get _getDividerBetweenButtons => SizedBox(height: 10,);
+  Widget get _getDividerBetweenButtons => const SizedBox(height: 10,);
 }
