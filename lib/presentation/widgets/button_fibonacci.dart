@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ButtonFibonacci extends StatelessWidget {
-  Function? onTap;
+  final Function? onTap;
   final Widget child;
-  Key? keyId;
-  ButtonFibonacci({Key? key, this.onTap, required this.child, this.keyId}) : super(key: key);
+  final Key? keyId;
+  const ButtonFibonacci({Key? key, this.onTap, required this.child, this.keyId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class ButtonFibonacci extends StatelessWidget {
               elevation: 10),
           onPressed: onTap == null ? null : () => onTap!(),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 5),
+            padding: const EdgeInsets.symmetric(vertical: 5),
               child: child
           )),
     );

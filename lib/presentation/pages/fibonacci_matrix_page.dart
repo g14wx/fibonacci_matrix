@@ -18,9 +18,9 @@ class FibonacciMatrixPage extends StatelessWidget {
       body: MediaQuery.of(context).orientation == Orientation.portrait ? Center(
         child: ConstrainedBox(
           constraints: BoxConstraints.loose(const Size.fromWidth(600)),
-            child: FibonacciScreen()
+            child: const FibonacciScreen()
         ),
-      ) : FibonacciScreen(),
+      ) : const FibonacciScreen(),
     );
   }
 }
