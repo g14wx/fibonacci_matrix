@@ -1,5 +1,4 @@
 import 'package:fibonacci_matrix/business_logic/cubits/fibonacci_cubit.dart';
-import 'package:fibonacci_matrix/business_logic/cubits/fibonacci_cubit.dart';
 import 'package:fibonacci_matrix/presentation/widgets/buttons_for_fibonacci.dart';
 import 'package:fibonacci_matrix/presentation/widgets/fibonacci_information_label.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +10,7 @@ import 'package:fibonacci_matrix/presentation/widgets/inputs_for_generate_fibona
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FibonacciScreen extends StatefulWidget {
-  FibonacciScreen({Key? key}) : super(key: key);
+  const FibonacciScreen({Key? key}) : super(key: key);
 
   @override
   State<FibonacciScreen> createState() => _FibonacciScreenState();

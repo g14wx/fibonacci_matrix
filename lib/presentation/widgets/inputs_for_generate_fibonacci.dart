@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class InputsForGenerateFibonacci extends StatelessWidget {
   final TextEditingController _startInput;
   final TextEditingController _finishInput;
-  InputsForGenerateFibonacci(
+  const InputsForGenerateFibonacci(
       {Key? key, required TextEditingController startInputController, required TextEditingController finishController})
       : _startInput = startInputController,
         _finishInput = finishController,
@@ -34,10 +34,10 @@ class InputsForGenerateFibonacci extends StatelessWidget {
                         final isNumber = int.tryParse(value ?? "") != null;
                         if (value == null || !isNumber) {
                           return "Ingrese un numero entero";
-                        }
-                        if (int.parse(value) < 0) {
+                        } else if (int.parse(value) < 0) {
                           return "Ingrese numeros positivos";
                         }
+                        return null;
                       })
                 ],
               ),
@@ -64,10 +64,10 @@ class InputsForGenerateFibonacci extends StatelessWidget {
                         }
                         if (int.parse(value) < 0) {
                           return "Ingrese numeros positivos";
-                        }
-                        if (int.parse(value) == 0) {
+                        } else if (int.parse(value) == 0) {
                           return "Ingrese numero mayor a 0";
                         }
+                        return null;
                       })
                 ],
               ),
