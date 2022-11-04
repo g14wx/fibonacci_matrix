@@ -43,7 +43,9 @@ class _ButtonsForFibonacciState extends State<ButtonsForFibonacci> {
           _getDividerBetweenButtons,
           ButtonFibonacci(onTap: _canTapRotateToRight, child: const Text('Rotar a la derecha')),
           _getDividerBetweenButtons,
-          ButtonFibonacci(onTap: _canTapCleanMatrix, child: const Text('Limpiar matriz'))
+          ButtonFibonacci(
+              keyId: Key(IdKeysForElements.buttonToClearGrid.literal),
+              onTap: _canTapCleanMatrix, child: const Text('Limpiar matriz'))
         ],
       ),
     );
